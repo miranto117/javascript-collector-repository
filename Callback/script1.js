@@ -1,0 +1,1 @@
+console.log('My script1 loaded');

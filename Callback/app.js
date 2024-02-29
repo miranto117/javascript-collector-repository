@@ -26,8 +26,23 @@ function loadScript(src, callback)
     document.head.append(script);
 }
 
+// Appeller la function avec la callback
 loadScript('script.js', script => {
     console.log(`The script ${script.src} is loaded`)
+    //Callback imbriqués
+    loadScript('script1.js', script => {
+        console.log(`The script ${script.src} is loaded`)
+
+        loadScript('script.js', script => {
+            console.log(`The script ${script.src} is loaded`)
+     
+        });
+
+    });
+
 });
+
+
+
 
 
