@@ -4,12 +4,12 @@
 
 function salutation(name)
 {
-    console.log("Hello" + name);
+    console.log("Hello " + name);
 }
 
 function processUserInput(callback)
 {
-    let name =  "mon callaback";
+    let name =  "mon callback";
     callback(name);
 }
 
@@ -20,7 +20,6 @@ function loadScript(src, callback)
 {
     let script = document.createElement('script');
     script.src = src;
-    document.head.append(script);
 
     script.onload = () => callback(script);
     document.head.append(script);
@@ -31,16 +30,38 @@ loadScript('script.js', script => {
     console.log(`The script ${script.src} is loaded`)
     //Callback imbriqués
     loadScript('script1.js', script => {
-        console.log(`The script ${script.src} is loaded`)
+        console.log(`The script1 ${script.src} is loaded`)
 
         loadScript('script.js', script => {
-            console.log(`The script ${script.src} is loaded`)
+            console.log(`The script2 ${script.src} is loaded`)
      
         });
 
     });
 
 });
+
+const array = [4, 1, -2, 3, 7, -1]
+
+function removeNegative(theArray, callback)
+{
+    setTimeout(() => 
+    { 
+        const tab = []
+        for (const value of theArray)
+        {
+            if (callback(value))
+            {
+                tab.push(value)
+            }
+        }
+        console.log(tab)
+        return tab
+    }, 2000)
+}
+
+removeNegative(array, (x) => x >= 0 )
+
 
 
 
