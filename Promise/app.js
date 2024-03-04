@@ -2,11 +2,22 @@
 // Parametre : callback : parametre resolve reject
 // Then 
 
-const maPromesse = new Promise((reject, resolve) => {
+const maPromesse = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("toto")
+        const randomNumber = Math.random()
+        if (randomNumber < 0.5) {
+            resolve("Succès : " + randomNumber);
+        } else {
+            reject("Échec : " + randomNumber);
+        }
     }, 1000)
 })
 
-maPromesse.then
+maPromesse
+.then((resultat) =>{
+    console.log('Promesse tenue avec succès :', resultat);
+})
+.catch((erreur) => {
+    console.log('La promesse a échoué :', erreur);
+})
 
