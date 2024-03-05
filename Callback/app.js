@@ -43,7 +43,7 @@ loadScript('script.js', script => {
 
 const array = [4, 1, -2, 3, 7, -1]
 
-function removeNegative(theArray, callback)
+function posiitivePaire (theArray, callback)
 {
     setTimeout(() => 
     { 
@@ -55,12 +55,35 @@ function removeNegative(theArray, callback)
                 tab.push(value)
             }
         }
+        
         console.log(tab)
-        return tab
+        callback(tab)
     }, 2000)
 }
 
-removeNegative(array, (x) => x >= 0 )
+//  removeNegative(array, (x) => x >= 0)
+
+function removePaire(theArray, callback){
+    // console.log(theArray)
+    setTimeout(() =>
+    {   
+        const tab1 = []
+        for (const item of theArray)
+        {
+            if (callback(item))
+            { 
+                tab1.push(item)
+            }
+        }
+        
+        console.log(tab1)
+        callback(tab2)
+    }, 2000)
+}
+
+
+removeNegative(array, (x) =>  x >= 0)
+removePaire(array, (x) =>  x % 2 != 0)
 
 
 

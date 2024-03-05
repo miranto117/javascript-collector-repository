@@ -35,4 +35,21 @@ console.log(i)
 console.log(j)
 
 // Renvoyer plusieurs valeurs
+function f() {
+    return [123, 456]
+}
+
+const [k, m] = f()
+
+console.log(k)
+console.log(m)
+
+const x = f()
+console.log("X vaut" , x)
+
+
+// Ignorer valeur
+const [ , s] = f()
+console.log("k vaut" , k)
+console.log("s vaut" , s)
 
